@@ -1,34 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Card from '../UI/Card'
+import Button from '../UI/Button'
 
 import styles from './AddUser.module.css';
 
 
 
-const AddUser = () => {
+const AddUser = (props) => {
 
-const addUserHandler =(event) => {
+    const [enterUsername, setEnterUsername] = useState('');
 
-    event.preventDefault();
-
-}
+    const [enterAge, setEnterAge] = useState('');
 
 
-    return (  
-    <Card myClasses={styles.input}>
-       <form onSubmit={addUserHandler}>
-        <label htmlFor='username'>Username</label>
-        <input id="username" type="text" />
+    const addUserHandler = (event) => {
 
-        <label htmlFor='age'>Age(Years)</label>
-        <input id="age" type="number" />
+        event.preventDefault();
 
-        <button type="button">Add user</button>
+        console.log(enterUsername, enterAge);
+    };
 
-        </form>
-    </Card>
+    const usernameChangeHandler = (event) => {
+
+        setEnterUsername(event.target.value);
+
+    };
+
+    const ageChangeHandler = (event) => {
+        setEnterAge(event.target.value);
+    };
+
+
+    return (
+        <Card myClasses={styles.input}>
+            <form onSubmit={addUserHandler}>
+                <label htmlFor='username'>Username</label>
+                <input
+                    id="username"
+                    type="text"
+                    onChange={usernameChangeHandler} />
+
+                <label htmlFor='age'>Age(Years)</label>
+                <input
+                    id="age"
+                    type="number"
+                    onChange={ageChangeHandler} />
+
+                <Button type="submit">Add user</Button>
+
+            </form>
+        </Card>
     );
 }
- 
+
 export default AddUser;
