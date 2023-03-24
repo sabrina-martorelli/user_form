@@ -1,14 +1,14 @@
 import React from 'react';
 
 import Card from '../UI/Card';
-import Styles from './UsersList.module.css';
+import styles from './UsersList.module.css';
 
-const UserLists = (props) => {
+const UsersList = (props) => {
     return ( 
-        <Card className={StyleSheet.user}>
+        <Card className={styles.users}>
         <ul>
-        {props.users.map((user) => (
-        <li>
+        {props.users.map((user, key) => (
+        <li key={key}>
             {user.name}
             ({user.age} years old)
         </li>
@@ -18,4 +18,4 @@ const UserLists = (props) => {
      );
 };
  
-export default UserLists;
+export default UsersList;
