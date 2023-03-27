@@ -10,8 +10,9 @@
   }
   
   .users li {
-    border: 1px solid #ccc;
+    border: 1px solid #a2d2ff;
     margin: 0.5rem 0;
     padding: 0.5rem;
+    background: #a2d2ff;
   }
   
